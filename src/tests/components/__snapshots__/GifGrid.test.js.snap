@@ -18,6 +18,12 @@ exports[`Prueba en <GifGrid /> debe mostrar imagenes cuando se carga useFetchGif
       title="cual quier cosa"
       url="https://localhost/image.png"
     />
+    <GifGridItem
+      id="123"
+      key="123"
+      title="cual quier cosa"
+      url="https://localhost/image.png"
+    />
   </div>
 </Fragment>
 `;
