@@ -18,7 +18,7 @@ export const AddCategory = ( { setCategories } ) => {
             setInputValue('');
         }
 
-       // console.log( 'submit hecho' );
+       console.log( 'submit hecho', inputValue );
     }
     return (
         <form onSubmit={ handleSubmit }>
