@@ -30,7 +30,24 @@ describe('Prueba en <AddCategory />>', () => {
 
         wrapper.find('form').simulate('submit', { preventDefault(){} });
         expect( setCategories ).not.toHaveBeenCalled();
-   });
+    });
+    
+    test('Debe llamar el setCategories y limpiar el inputValue', () => {
+        const value = 'Hola Mundo';
+        // 1. simular el inputChange
+        const input = wrapper.find('input');
+        input.simulate( 'change', { target:{ value: value } } );
+        // 2. simular el envio del formulario
+        wrapper.find('form').simulate('submit', { preventDefault(){} });
+        // 3. se debe llamar el setCategories una vez
+        expect( setCategories ).toHaveBeenCalled();
+        expect( setCategories ).toHaveBeenCalledTimes(1); //llamado 2 veces
+        expect( setCategories ).toHaveBeenCalledWith( expect.any(Function) ); // espera que se haya llamado con una funcion
+        // 4. el valor del input debe estar como string vacio
+        expect( wrapper.find('input').prop('value') ).toBe( '' );
+                
+    });
+
     
 
 });
